@@ -7,13 +7,13 @@ RUN yarn --no-cache
 
 COPY . .
 COPY .env.build .env
-RUN yarn typecheck
-RUN yarn build
-RUN npm prune --production
+# RUN yarn typecheck
+# RUN yarn build
+# RUN npm prune --production
 
-FROM node:15-buster
-WORKDIR /usr/src/app
-COPY --from=builder /usr/src/app .
+# FROM node:15-buster
+# WORKDIR /usr/src/app
+# COPY --from=builder /usr/src/app .
 
 EXPOSE 5000
 CMD [ "yarn", "start:inject" ]
