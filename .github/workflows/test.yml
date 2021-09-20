@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Dump context
         if: github.actor == '34shubh'
+        echo "Wrong user"
         run: exit 1 // added failure
       - name: Show context
         run: |
