@@ -1,0 +1,16 @@
+name: dump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump context
+        run: |
+          echo "{{ github.actor }}"
+      #   if: github.actor == 'dependabot[bot]'
+      #   run: exit 1 // added failure
+      # - name: the dump
+      #   uses: crazy-max/ghaction-dump-context@v1
