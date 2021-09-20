@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump context
+        if: github.actor == '34shubh'
+        run: exit 1 // added failure
+      - name: Show context
         run: |
           echo "${{ github.actor }}"
-      #   if: github.actor == 'dependabot[bot]'
-      #   run: exit 1 // added failure
       # - name: the dump
       #   uses: crazy-max/ghaction-dump-context@v1
