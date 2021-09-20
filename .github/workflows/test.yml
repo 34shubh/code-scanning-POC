@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Dump context
         run: |
-          echo "{{ github.actor }}"
+          echo "${{ github.actor }}"
       #   if: github.actor == 'dependabot[bot]'
       #   run: exit 1 // added failure
       # - name: the dump
