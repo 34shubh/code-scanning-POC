@@ -10,7 +10,7 @@ jobs:
       - name: Dump context
         if: github.actor == '34shubh'
         run: |
-          echo "Wrong actor" 
+          echo ${GITHUB_REF##*/}
           exit 1 // added failure
       - name: Show context
         run: |
