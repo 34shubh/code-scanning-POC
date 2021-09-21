@@ -7,11 +7,14 @@ jobs:
   dump:
     runs-on: ubuntu-latest
     steps:
+      - name: Get the current branch name
+        shell: bash
+        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+        id: myref
       - name: Dump context
-        if: ${GITHUB_REF#refs/heads/} == 'master'
+        if: ${{ steps.myref.outputs.branch }} == 'master'
         run: |
           echo ${GITHUB_REF#refs/heads/}
-          echo Wrong branch
           exit 1 // added failure
       - name: Show context
         run: |
