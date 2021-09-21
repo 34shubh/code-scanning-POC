@@ -12,7 +12,7 @@ jobs:
         run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
         id: myref
       - name: Dump context
-        if: ${{ steps.myref.outputs.branch }} == 'master'
+        if: ${{ steps.myref.outputs.branch }} == 'master01'
         run: |
           echo ${{ steps.myref.outputs.branch }}
           echo "Wrong branch"
