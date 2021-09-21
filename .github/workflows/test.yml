@@ -1,0 +1,19 @@
+name: dump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump context
+        if: github.actor == '34shubh'
+        run: |
+          echo ${GITHUB_REF#refs/heads/}
+          exit 1 // added failure
+      - name: Show context
+        run: |
+          echo "${{ github.actor }}"
+      # - name: the dump
+      #   uses: crazy-max/ghaction-dump-context@v1
