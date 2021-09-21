@@ -15,7 +15,7 @@ jobs:
         if: ${{ steps.myref.outputs.branch }} == 'master'
         run: |
           echo ${{ steps.myref.outputs.branch }}
-          echo Wrong branch
+          echo "Wrong branch"
           exit 1 // added failure
       - name: Show context
         run: |
