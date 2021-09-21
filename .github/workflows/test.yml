@@ -7,6 +7,7 @@ jobs:
   dump:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{github.ref}}
       - name: Get the current branch name
         shell: bash
         run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
