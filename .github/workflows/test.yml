@@ -14,7 +14,8 @@ jobs:
       - name: Dump context
         if: ${{ steps.myref.outputs.branch }} == 'master'
         run: |
-          echo ${GITHUB_REF#refs/heads/}
+          echo ${{ steps.myref.outputs.branch }}
+          echo Wrong branch
           exit 1 // added failure
       - name: Show context
         run: |
