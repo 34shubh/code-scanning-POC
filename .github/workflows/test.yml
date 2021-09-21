@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump context
-        if: github.actor == '34shubh'
+        if: ${GITHUB_REF#refs/heads/} == 'master'
         run: |
           echo ${GITHUB_REF#refs/heads/}
+          echo Wrong branch
           exit 1 // added failure
       - name: Show context
         run: |
